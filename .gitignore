@@ -17,4 +17,6 @@
 
 ###> eclipse ###
 .project
+.buildpath
+.settings
 ###< eclipse ###

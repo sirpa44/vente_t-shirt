@@ -25,16 +25,12 @@ class HomeController extends AbstractController
      */
     public function Home()
     {
-        $product = new Product();
-        $product->setName('t-shirt bio blanc');
-        $product->setDescription('t-shirt fabrique avec des produit biologique issue du commerce equitable, il est de couleur blanc et de taille M');
-        $product->setPrice(15.95);
-
-        $this->em->persist($product);
-        $this->em->flush();
+        $productRepo = $this->em->getRepository(Product::class);
+        $products = $productRepo->findAll();
         
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
+            'products' => $products
         ]);
     }
 }
